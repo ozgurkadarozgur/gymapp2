@@ -1,0 +1,56 @@
+@model CheckInViewModel
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    
+    
+    
+    <form asp-area="Home" asp-controller="CheckIn" asp-action="Create" method="POST">
+        <div class="form-group">
+            <label>Salon Sahibi</label>
+            <select  class="form-control" asp-for="@Model.GymId">
+                @foreach (var item in ViewData["Gymlist"] as IList<Gym>)
+                {
+                    <option value="@item.Id">@item.Title</option>
+                }
+            </select>
+        </div>    
+        <button type="submit" class="btn btn-primary">Rezervasyon Yap!</button>
+    </form>
+
+<hr />
+    
+    <h3>Önceki Rezervasyonlar</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th><b>Salon Adı</b></th>
+                <th><b>Tarih</b></th>
+                <th><b>Rezervasyon Kodu</b></th>
+                <th><b>CheckIn Durumu</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in (List<Reservation>)ViewData["reservationList"]){
+            <tr>
+                <td>@item.Gym.Title</td>
+                <td>@item.Gym.CreatedAt.ToShortDateString()</td>
+                <td>@item.Code</td>
+                <td>
+                    @if(@item.didCheckIn()){
+                        <span>CheckIn yapıldı.</span>
+                    }else{
+                        <span>CheckIn yapılmadı.</span>
+                    }
+                </td>
+            </tr>                
+            }
+        </tbody>
+    </table>
+    
+</div>

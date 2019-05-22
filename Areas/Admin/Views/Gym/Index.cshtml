@@ -1,0 +1,27 @@
+@model IEnumerable<Gym>
+
+
+<div class="container">
+    <h4>Salonlar</h4>
+    <a asp-area="Admin" asp-controller="Gym" asp-action="Create">Yeni Oluştur</a>
+    <hr />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Salon Sahibi</th>
+                <th>Salon Adı</th>
+                <th>Oluşturma Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Owner.FullName()</td>
+                    <td>@item.Title</td>
+                    <td>@item.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,50 @@
+@model UserViewModel
+@inject HelperService MService
+
+<div class="container">
+
+<h4>Kullanıcı Oluştur</h4>
+<hr />
+
+<div class="container">
+    <form asp-area="Admin" asp-controller="User" asp-action="Create" method="POST">
+        <div class="form-group">
+            <label asp-for="UserTypeId">Kullanıcı Tipi</label>
+            <select asp-for="UserTypeId" class="form-control">
+                @foreach (var item in MService.ListUserTypes())
+                {
+                    <option value="@item.Id">@item.Type</option>
+                }            
+            </select>
+            <span asp-validation-for="UserTypeId" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Username">Kullanıcı Adı</label>
+            <input asp-for="Username" type="text" class="form-control"  aria-describedby="usernameHelp" placeholder="Kullanıcı adı girin">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Şifre</label>
+            <input asp-for="Password" type="text" class="form-control" aria-describedby="passwordHelp" placeholder="Şifre girin">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FirstName">Ad</label>
+            <input asp-for="FirstName" type="text" class="form-control" aria-describedby="firstnameHelp" placeholder="Adınızı girin">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName">Soyad</label>
+            <input asp-for="LastName" type="text" class="form-control" aria-describedby="lastnameHelp" placeholder="Soyadınızı girin">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email adresinizi girin">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>        
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+</div>

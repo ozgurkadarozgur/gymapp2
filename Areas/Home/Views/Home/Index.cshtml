@@ -1,0 +1,436 @@
+@model IEnumerable<Gym>
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>		
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-start">
+						<div class="banner-content col-lg-12 col-md-12">
+							<h1 class="text-uppercase">
+								Her Zaman Her Yerde<br>
+								Egzersiz Yapın					
+							</h1>
+							<p class="text-white text-uppercase pt-20 pb-20">
+								Gymlee 
+							</p>
+						</div>												
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start offer Area -->
+			<section class="offer-area section-gap" id="offer">
+				<div class="container">	
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class=" mb-10">3 Adımda Spor Yap</h1>
+								<p>Hem de istediğin yerde!</p>
+							</div>
+						</div>
+					</div>									
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="single-offer">
+								<img class="img-fluid" src=@Url.Content("~/Content/img/o1.png") alt="">
+								<h4>Reservasyon Yap</h4>
+								<p>
+									Gitmek istediğin salonu belirle
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="single-offer">
+								<img class="img-fluid" src=@Url.Content("~/Content/img/o2.png") alt="">
+								<h4>Kodunla Doğrulama Yap</h4>
+								<p>
+									Spor salonunda kodunla doğrulama yap
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="single-offer">
+								<img class="img-fluid" src=@Url.Content("~/Content/img/o3.png") alt="">
+								<h4>Spor Yap</h4>
+								<p>
+									Artık spor yapabilirsin!
+								</p>
+							</div>
+						</div>												
+					</div>
+				</div>	
+			</section>
+			<!-- End offer Area -->
+			
+			<!-- Start convert Area -->
+			<section class="convert-area" id="convert">
+				<div class="container">
+					<div class="convert-wrap">
+						<div class="row d-flex justify-content-center">
+							<div class="menu-content pb-70 col-lg-8">
+								<div class="title text-center">
+									<h1 class="text-white mb-10">Vücüt Kütle indexini hesapla</h1>
+									<p class="text-white">Spor Herkes için gereklidir.</p>
+								</div>
+							</div>
+						</div>						
+						<div class="row justify-content-center align-items-start">
+							<div class="col-lg-3 col-md-6 cols-img">
+								<input type="text" id="feet"name="feet" placeholder="Boyunuz" class="form-control mb-20">
+							</div>
+							<div class="col-lg-3 col-md-6 cols">
+								<input type="text" id="pounds" name="pounds" placeholder="Kilonuz" class="form-control mb-20">
+							</div>
+							<div class="col-lg-3 col-md-6 cols">	
+								<button id="calculate" class="primary-btn header-btn text-uppercase">Hesapla</button>
+							</div>
+						</div>						
+					</div>
+				</div>	
+			</section>
+			<!-- End convert Area -->
+
+			<!-- Start top-course Area -->
+			<section class="top-course-area section-gap" id="top-course">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-9">
+							<div class="title text-center">
+								<h1 class="mb-10">En çok ilgi çeken spor salonları</h1>
+								<p>Bu spor salonlarına tek üyelikle gidebilirsin!</p>
+							</div>
+						</div>
+					</div>											
+					<div class="row">
+						@foreach (var item in ViewData["Gymlist"] as IList<Gym>)
+						{
+							<div class="col-lg-4 col-md-6">
+							<div class="single-course">
+								<div class="thumb">
+									<img class="img-fluid" src=@Url.Content(@item.ProfilePicture) alt="">
+								</div>
+								<span class="course-status">Adana</span>
+								<a href="#"><h4>@item.Title <span></span></h4></a>
+							</div>
+						</div>
+						}																
+					</div>
+				</div>	
+			</section>
+			<!-- End top-course Area -->
+							
+
+			<!-- Start feature Area -->
+			<section class="feature-area">
+				<div class="container-fluid">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-3 feat-img no-padding">
+							<img class="img-fluid" src=@Url.Content("~/Content/img/f1.jpg") alt="">
+						</div>
+						<div class="col-lg-3 no-padding feat-txt">
+							<h6 class="text-uppercase text-white">Hiç Bir salona bağımlı kalmayın</h6>
+							<h1>Türkiye'nin Her Yerinde</h1>
+							<p>
+								Üyemiz olan her spor salonuna gidebilirsiniz. Hem de Türkiye'nin her yerinde!
+							</p>
+						</div>
+						<div class="col-lg-3 feat-img no-padding">
+							<img class="img-fluid" src=@Url.Content("~/Content/img/f2.jpg") alt="">							
+						</div>
+						<div class="col-lg-3 no-padding feat-txt">
+							<h6 class="text-uppercase text-white">Istediğiniz Zaman Iptal Edin</h6>
+							<h1>Taahhüt Yok</h1>
+							<p>
+								Üyeliğinizden istediğiniz an vazgeçebilirsiniz!
+							</p>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End feature Area -->
+
+			<!-- Start schedule Area -->
+			<!-- <section class="schedule-area section-gap" id="schedule">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Schedule your Fitness Process</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="table-wrap col-lg-12">
+							<table class="schdule-table table table-bordered">
+								  <thead class="thead-light">
+								    <tr>
+								      <th class="head" scope="col">Course name</th>
+								      <th class="head" scope="col">mon</th>
+								      <th class="head" scope="col">tue</th>
+								      <th class="head" scope="col">wed</th>
+								      <th class="head" scope="col">thu</th>
+								      <th class="head" scope="col">fri</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <th class="name" scope="row">Fitness Aero</th>
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								    </tr>
+								    <tr>
+								      <th class="name" scope="row">Senior Fitness</th>
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>						      
+								    </tr>
+								    <tr>
+								      <th class="name" scope="row">Fitness Aero</th>
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>							      
+								    </tr>
+								    <tr>
+								      <th class="name" scope="row">Senior Fitness</th>
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>							      
+								    </tr>
+								    <tr>
+								      <th class="name" scope="row">Senior Fitness</th>
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>						      
+								    </tr>
+								    <tr>
+								      <th class="name" scope="row">Senior Fitness</th>
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>				      
+								      <td>10.00 <br> 02.00</td>						      
+								    </tr>							    							    							    							    
+								  </tbody>
+							</table>							
+						</div>
+					</div>
+				</div>	
+			</section> -->
+			<!-- End schedule Area -->
+			
+			
+			<!-- Start team Area -->
+			<section class="team-area section-gap" id="trainer">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Üyelerimiz Ne Diyor</h1>
+								<p>Sizden Gelenler </p>
+							</div>
+						</div>
+					</div>						
+					<div class="row justify-content-center d-flex align-items-center">
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src=@Url.Content("~/Content/img/t1.jpg") alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<!-- <a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a> -->
+									<p>Azat Göktaş</p>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Azat Göktaş</h4>
+							    <p>Istediğim yerde spor yapabiliyorum. Bu harika!</p>									    	
+						    </div>
+						</div>
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src=@Url.Content("~/Content/img/t2.jpg") alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<!-- <a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a> -->
+									<p>Ozgur Ozdemirci</p>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Ozgur Ozdemirci</h4>
+							    <p>Kesinlikle tavsiye ediyorum. Her yerde spor yapabiliyorum.</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src=@Url.Content("~/Content/img/t3.jpg") alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<!-- <a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a> -->
+									<p>Hamdi Yüksel</p>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Hamdi Yüksel</h4>
+							    <p>Geleneksel spor salonu geride kaldı!</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src=@Url.Content("~/Content/img/t4.jpg") alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<!-- <a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a> -->
+									<p>Ad Soyad</p>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Ad Soyad</h4>
+							    <p>Hesaplı, esnek.</p>			    	
+						    </div>
+						</div>																		
+					</div>
+				</div>	
+			</section>
+			<!-- End team Area -->	
+
+			<!-- Start price Area -->
+			<section class="price-area pt-100" id="plan">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Tek Üyelik</h1>
+								<p>Bir üyelik, tüm spor salonları</p>
+							</div>
+						</div>
+					</div>					
+					<div class="row justify-content-center">
+						<!-- <div class="col-lg-4">
+							<div class="single-price">
+								<div class="top-sec d-flex justify-content-between">
+									<div class="top-left">
+										<h4>Standard</h4>
+										<p>For the <br>individuals</p>
+									</div>
+									<div class="top-right">
+										<h1>£199</h1>
+									</div>
+								</div>
+								<div class="bottom-sec">
+									<p>
+										“Few would argue that, despite the advancements
+									</p>
+								</div>
+								<div class="end-sec">
+									<ul>
+										<li>2.5 GB Free Photos</li>
+										<li>Secure Online Transfer Indeed</li>
+										<li>Unlimited Styles for interface</li>
+										<li>Reliable Customer Service</li>
+										<li>Manual Backup Provided</li>
+									</ul>
+									<button class="primary-btn price-btn mt-20">Purchase Plan<span class="lnr lnr-arrow-right"></span></button>
+								</div>								
+							</div> 
+						</div> -->
+						<div class="col-lg-4 " >
+							<div class="single-price">
+								<div class="top-sec d-flex justify-content-between">
+									<div class="top-left">
+										<h4>Standar Üyelik</h4>
+										<p>Sınırsız <br>Erişim</p>
+									</div>
+									<div class="top-right">
+										<h1>100₺</h1>
+									</div>
+								</div>
+								<div class="bottom-sec">
+									<p>
+										Bir üyelikle sınırsız erişim
+									</p>
+								</div>
+								<div class="end-sec">
+									<ul>
+										<li>Bütün Spor Salonları</li>
+										<li>Sınırsız Erişim</li>
+										<li>Taahhüt Yok</li>
+										
+									</ul>
+									<form action = "Home/Auth/Login">
+										<button class="primary-btn price-btn mt-20">Kayıt Ol<span class="lnr lnr-arrow-right"></span></button>
+										</form>
+								</div>								
+							</div> 
+						</div>	
+					
+																						
+					</div>
+				</div>	
+			</section>
+			
+
+			<!-- Start callto Area -->
+			<section class="callto-area section-gap relative">
+				<div class="overlay overlay-bg"></div>	
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-12">
+							<h1 class="text-white">Gymlee size benzersiz bir deneyim sunuyor</h1>
+							<p class="text-white pt-20 pb-20">
+								Yapmanız gereken tek şey kayıt olup spor salonuna gitmek
+							</p>
+							<a class="primary-btn" href="Home/Auth/Login">Kayıt Olun</a>
+							
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End callto Area -->
+			
+
+@section Scripts{
+	<script>
+		$(function(){			
+
+			$('#calculate').click(function() {
+				var feet = $('#feet').val();
+				var pounds = $('#pounds').val();
+				
+				var result = pounds / Math.pow((feet / 100), 2);
+				
+				var message = '';
+
+				if(result < 15) message = 'Çok ciddi derecede düşük kilolu.';
+				else if(result > 15 & result < 16) message = 'Ciddi derecede düşük kilolu.';
+				else if(result > 15 & result < 16) message = 'Ciddi derecede düşük kilolu.';
+				else if(result > 16 & result < 18.5) message = 'Düşük kilolu.';
+				else if(result > 18.5 & result < 25) message = 'Normal (sağlıklı) kilolu.';
+				else if(result > 25 & result < 30) message = 'Fazla kilolu.';
+				else if(result > 30 & result < 35) message = '1. dereceden (hafif) obez.';
+				else if(result > 35 & result < 40) message = '2. dereceden (ciddi) obez.';
+				else message = '3. dereceden (çok ciddi) obez.';
+
+
+				alert(message);
+
+			});
+
+		});
+	</script>
+}

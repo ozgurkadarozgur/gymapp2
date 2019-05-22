@@ -1,0 +1,30 @@
+@model IEnumerable<Reservation>
+
+<div class="container">
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kullanıcı</th>
+            <th>Tarih</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User.FullName()</td>
+                <td>@item.CreatedAt</td>
+                <td>
+                    @if(item.didCheckIn()){
+                        <span>Check In yapıldı.</span>
+                    }else{
+                        <a asp-area="GymOwner" asp-controller="Reservation" asp-action="CheckIn" asp-route-id="@item.Id">Check In Yap!</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

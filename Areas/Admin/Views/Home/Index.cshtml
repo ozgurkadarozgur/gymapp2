@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Http
+@using GymApp.Helpers
+
+@{
+    var user = Context.Session.GetObjectFromJson<User>("admin");
+}
+<h3>admin area</h3>
+
+<p>Welcome @user.FullName()</p>
+

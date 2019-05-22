@@ -1,0 +1,23 @@
+@model AuthUserViewModel
+
+<div class="container">
+
+<h4>Giriş Yap</h4>
+<hr />
+
+<div class="container">
+    <form asp-area="Admin" asp-controller="Auth" asp-action="Login" method="POST">              
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email adresinizi girin">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>    
+        <div class="form-group">
+            <label asp-for="Password">Şifre</label>
+            <input asp-for="Password" type="password" class="form-control" aria-describedby="passwordHelp" placeholder="Şifre girin">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>    
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </form>
+</div>
+</div>

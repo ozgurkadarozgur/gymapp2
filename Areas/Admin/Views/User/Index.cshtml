@@ -1,0 +1,36 @@
+@model IEnumerable<User>
+
+<div class="container">
+
+<h3>Kullanıcılar</h3>
+<a asp-area="Admin" asp-controller="User" asp-action="Create">Yeni Oluştur</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>UserType</th>
+            <th>Username</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>IsConfirmed</th>
+            <th>CreatedAt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserType.Type</td>
+                <td>@item.Username</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.IsConfirmed</td>
+                <td>@item.CreatedAt</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

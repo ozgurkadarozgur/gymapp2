@@ -1,0 +1,7 @@
+@model Reservation
+
+@if (Model.didCheckIn(Model.Id)) {
+    <span>Check in yapildi</span>
+}else {
+     <a asp-area="Admin" asp-controller="Reservation" asp-action="CheckIn" asp-route-id="@Model.Id">Check in Yap</a>
+}

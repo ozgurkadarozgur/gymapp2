@@ -1,0 +1,21 @@
+@model CheckInViewModel
+
+<div class="container">
+    <form asp-area="GymOwner" asp-controller="Reservation" asp-action="CheckIn" asp-route-id="@Model.Reservation.Id">
+        <table class="table table-bordered">
+        <tr>
+            <td>Üye Adı</td>
+            <th>@Model.Reservation.User.FullName()</th>
+        </tr>
+        <tr>
+            <td>Kod</td>
+            <td><input asp-for="Code" type="text" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-primary float-right">Check In Yap!</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
